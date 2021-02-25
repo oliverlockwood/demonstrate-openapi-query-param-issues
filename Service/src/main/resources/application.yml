@@ -1,0 +1,48 @@
+info:
+  app-name: Example App
+  description: Description of Example App
+  version: 1.0.0-SNAPSHOT
+
+server:
+  port: 18119
+  error:
+    include-message: always
+    include-binding-errors: always
+
+management:
+  server:
+    port: 18219
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include: livenessState,ping
+          show-details: always
+        readiness:
+          include: readinessState
+          show-details: always
+      show-details: always
+  health:
+    defaults:
+      enabled: false
+    livenessstate:
+      enabled: true
+    ping:
+      enabled: true
+    readinessstate:
+      enabled: true
+
+spring:
+  main:
+    banner-mode: "off"

@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.oliverlockwood</groupId>
+    <artifactId>demonstrate-openapi-query-param-issues</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <name>Example Client</name>
+  <description>Provides a Feign interface to allow clients to access the Example service</description>
+
+  <artifactId>example-client</artifactId>
+  <packaging>jar</packaging>
+
+  <dependencies>
+
+    <!-- Project internal -->
+    <dependency>
+      <groupId>com.oliverlockwood</groupId>
+      <artifactId>example-commons</artifactId>
+    </dependency>
+
+    <!-- Spring -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Other external -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+
+  </dependencies>
+
+</project>
