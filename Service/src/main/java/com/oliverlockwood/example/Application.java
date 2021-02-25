@@ -1,17 +1,14 @@
 package com.oliverlockwood.example;
 
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.Info;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-
-import java.util.Collections;
 
 
 @SpringBootApplication(scanBasePackages = "com.oliverlockwood")
@@ -38,20 +35,20 @@ public class Application extends SpringApplication {
 
 
     @Bean
-    public Docket api() {
+    public OpenAPI api() {
 
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .paths(path -> path.matches("/api/.*"))
-                .build()
-                .apiInfo(apiInfo());
+        return new OpenAPI()
+                .info(apiInfo());
     }
 
 
-    private ApiInfo apiInfo() {
+    private Info apiInfo() {
 
-        return new ApiInfo(appName, appDescription, version, "", new Contact("Oliver Lockwood", "https://www.oliverlockwood.com/", null),
-                null, null, Collections.emptyList());
+        return new Info()
+                .title(appName)
+                .description(appDescription)
+                .version(version)
+                .contact(new Contact().name("Oliver Lockwood").url("https://www.oliverlockwood.com/"));
     }
 
 }

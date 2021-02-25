@@ -46,3 +46,10 @@ management:
 spring:
   main:
     banner-mode: "off"
+
+springdoc:
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  packages-to-scan: com.oliverlockwood
+  paths-to-match: /api/**
+  swagger-ui.disable-swagger-default-url: true

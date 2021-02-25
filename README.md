@@ -14,4 +14,4 @@ You can do this within the IDE or, alternatively, from the `Service` directory:
 `mvn spring-boot:run`
 
 #### Swagger
-http://localhost:18119/swagger-ui/index.html?configUrl=/v2/api-docs/swagger-config
+http://localhost:18119/swagger-ui.html
